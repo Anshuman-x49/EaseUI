@@ -19,17 +19,17 @@ const ComponentLayout = () => {
   ];
 
   return (
-    <div className="flex min-h-screen text-(--text-color) bg-(--bg-color)">
+    <div className="flex flex-col md:flex-row min-h-screen text-(--text-color) bg-(--bg-color) w-full overflow-x-hidden">
       {/* Sidebar Navigation */}
       <aside
         className={`
-          w-64 p-5 flex flex-col
+          w-full md:w-64 p-5 flex flex-col shrink-0
           border-r border-gray-200 dark:border-zinc-800
           bg-(--bg-color)
-          fixed md:static top-0 left-0 h-full z-30
+          fixed md:sticky md:top-16 md:h-[calc(100vh-4rem)] z-30
           transform ${sidebarOpen ? "translate-x-0 shadow-2xl" : "-translate-x-full"}
           transition-transform duration-300 ease-in-out
-          md:translate-x-0
+          md:translate-x-0 no-scrollbar
         `}
       >
         <div className="flex items-center justify-between mb-6 px-3 md:px-0">
@@ -38,13 +38,13 @@ const ComponentLayout = () => {
           </h2>
           <button
             onClick={() => setSidebarOpen(false)}
-            className="md:hidden p-1 rounded-md text-gray-500 hover:bg-gray-100 dark:hover:bg-zinc-800"
+            className="md:hidden p-1.5 rounded-md text-gray-500 hover:bg-gray-100 dark:hover:bg-zinc-800"
           >
             <X size={18} />
           </button>
         </div>
 
-        <nav className="flex-1 overflow-y-auto">
+        <nav className="flex-1 overflow-y-auto no-scrollbar">
           <ul className="flex flex-col gap-1.5">
             {components.map((item) => {
               const isActive =
@@ -86,12 +86,12 @@ const ComponentLayout = () => {
       {sidebarOpen && (
         <div
           onClick={() => setSidebarOpen(false)}
-          className="fixed inset-0 bg-black/40 z-20 md:hidden backdrop-blur-xs"
+          className="fixed inset-0 bg-black/50 z-20 md:hidden backdrop-blur-xs"
         />
       )}
 
-      {/* Main Content Area */}
-      <div className="flex-1 overflow-auto h-[calc(100vh-4rem)] p-4 md:p-8">
+      {/* Main Content Area - Flows naturally without inner scrollbar */}
+      <div className="flex-1 w-full max-w-full min-w-0 p-4 md:p-8">
         <button
           className="md:hidden mb-4 p-2 rounded-lg border border-gray-200 dark:border-zinc-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-zinc-800 flex items-center gap-2 text-sm font-medium"
           onClick={() => setSidebarOpen(!sidebarOpen)}
