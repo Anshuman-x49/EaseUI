@@ -5,4 +5,5 @@ export * from './Modal/Modal'
 export * from './Input/Input'
 export * from './Carousel'
 export * from './Tooltip'
+export * from './Layout'
 
