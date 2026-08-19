@@ -151,7 +151,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
         )}
 
         {description && (
-          <p className="text-gray-500 mb-4">{description}</p>
+          <p className="text-gray-500 dark:text-slate-300 mb-4">{description}</p>
         )}
 
         {children}

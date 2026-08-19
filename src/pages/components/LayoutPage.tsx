@@ -149,7 +149,7 @@ const LayoutPage = () => {
           <SidebarIcon className="w-5 h-5 text-indigo-600" />
           <h2 className="text-xl font-semibold">1. Dashboard Layout</h2>
         </div>
-        <p className="text-gray-600 text-sm">
+        <p className="text-gray-600 dark:text-slate-400 text-sm">
           Sleek dark theme dashboard with responsive collapsible sidebar, sticky top header bar, and content grid.
         </p>
         <ComponentDemo code={dashboardLayoutCode}>
@@ -198,7 +198,7 @@ const LayoutPage = () => {
           <Layers className="w-5 h-5 text-indigo-600" />
           <h2 className="text-xl font-semibold">2. Main Web Layout</h2>
         </div>
-        <p className="text-gray-600 text-sm">
+        <p className="text-gray-600 dark:text-slate-400 text-sm">
           Web application layout with an indigo header bar, centered content container, and sleek dark footer.
         </p>
         <ComponentDemo code={mainLayoutCode}>

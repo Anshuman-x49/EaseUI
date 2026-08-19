@@ -253,7 +253,7 @@ const slides = [
     <div className="max-w-4xl mx-auto p-4 space-y-12">
       <div className="space-y-4">
         <h1 className="text-4xl font-bold tracking-tight">Carousel</h1>
-        <p className="text-xl text-gray-600">
+        <p className="text-xl text-gray-600 dark:text-slate-400">
           A flexible, touch-friendly carousel slider supporting smooth CSS animations,
           autoplay, fade/zoom effects, compound components, and responsive multi-item layouts.
         </p>
@@ -262,7 +262,7 @@ const slides = [
       {/* 1. Basic Auto-playing Hero Carousel */}
       <section className="space-y-4">
         <h2 className="text-2xl font-semibold">Hero Image Slider (Prop API)</h2>
-        <p className="text-gray-600 text-sm">
+        <p className="text-gray-600 dark:text-slate-400 text-sm">
           Simple plug-and-play configuration using the <code>items</code> prop with autoplay, controls, and indicators.
         </p>
         <ComponentDemo code={basicUsageCode}>
@@ -283,7 +283,7 @@ const slides = [
       {/* 2. Fade Transition & Glass Variant */}
       <section className="space-y-4">
         <h2 className="text-2xl font-semibold">Cross-Fade Effect & Bar Indicators</h2>
-        <p className="text-gray-600 text-sm">
+        <p className="text-gray-600 dark:text-slate-400 text-sm">
           Smooth cross-fade effect (<code>effect="fade"</code>) with bar indicators and glassmorphism container styling.
         </p>
         <ComponentDemo code={fadeEffectCode}>
@@ -305,7 +305,7 @@ const slides = [
       {/* 3. Compound Components Pattern */}
       <section className="space-y-4">
         <h2 className="text-2xl font-semibold">Compound Components Pattern</h2>
-        <p className="text-gray-600 text-sm">
+        <p className="text-gray-600 dark:text-slate-400 text-sm">
           Full flexibility using subcomponents like <code>CarouselContent</code>, <code>CarouselItem</code>, <code>CarouselPrevious</code>, <code>CarouselNext</code>, and <code>CarouselAutoplayToggle</code>.
         </p>
         <ComponentDemo code={compoundComponentCode}>
@@ -357,7 +357,7 @@ const slides = [
       {/* 4. Multiple Items Per View */}
       <section className="space-y-4">
         <h2 className="text-2xl font-semibold">Multi-Item Card Slider</h2>
-        <p className="text-gray-600 text-sm">
+        <p className="text-gray-600 dark:text-slate-400 text-sm">
           Display multiple slides side-by-side using <code>itemsPerView={2}</code> and custom <code>gap</code> spacing.
         </p>
         <ComponentDemo code={itemsPerViewCode}>

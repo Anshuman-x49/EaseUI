@@ -119,7 +119,7 @@ import { Info, Heart } from "lucide-react";
     <div className="max-w-4xl mx-auto p-4 space-y-12">
       <div className="space-y-4">
         <h1 className="text-4xl font-bold tracking-tight">Tooltip</h1>
-        <p className="text-xl text-gray-600">
+        <p className="text-xl text-gray-600 dark:text-slate-400">
           A lightweight, customizable popup that displays informative hint text when users hover, focus, or click an element.
         </p>
       </div>
@@ -127,7 +127,7 @@ import { Info, Heart } from "lucide-react";
       {/* 1. Placement Directions */}
       <section className="space-y-4">
         <h2 className="text-2xl font-semibold">Placements</h2>
-        <p className="text-gray-600 text-sm">
+        <p className="text-gray-600 dark:text-slate-400 text-sm">
           Tooltips can be positioned on any side of the trigger element using the <code>position</code> prop.
         </p>
         <ComponentDemo code={basicUsageCode}>
@@ -154,7 +154,7 @@ import { Info, Heart } from "lucide-react";
       {/* 2. Color Variants */}
       <section className="space-y-4">
         <h2 className="text-2xl font-semibold">Style Variants</h2>
-        <p className="text-gray-600 text-sm">
+        <p className="text-gray-600 dark:text-slate-400 text-sm">
           Choose from curated theme styles including dark, light, primary, and glassmorphism.
         </p>
         <ComponentDemo code={variantsCode}>
@@ -181,7 +181,7 @@ import { Info, Heart } from "lucide-react";
       {/* 3. Custom Content & Click Trigger */}
       <section className="space-y-4">
         <h2 className="text-2xl font-semibold">Custom Content & Click Triggers</h2>
-        <p className="text-gray-600 text-sm">
+        <p className="text-gray-600 dark:text-slate-400 text-sm">
           Tooltips accept custom JSX elements as content and can be triggered on click instead of hover.
         </p>
         <ComponentDemo code={customContentCode}>

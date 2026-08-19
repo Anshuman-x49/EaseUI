@@ -3,7 +3,7 @@ import { cva } from "class-variance-authority";
 import { cn } from "@/libs/utils";
 
 const textareaCls = cva(
-  "w-full rounded-md border px-3 py-2 resize-y focus:outline-none transition",
+  "w-full rounded-md border px-3 py-2 resize-y focus:outline-none transition bg-white dark:bg-zinc-900 dark:text-white dark:border-zinc-700",
   {
     variants: {
       size: {
@@ -27,7 +27,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
     return (
       <div className="flex flex-col gap-1">
         {label && (
-          <label className="text-sm font-medium text-gray-700">{label}</label>
+          <label className="text-sm font-medium text-gray-700 dark:text-slate-300">{label}</label>
         )}
         <textarea
           ref={ref}

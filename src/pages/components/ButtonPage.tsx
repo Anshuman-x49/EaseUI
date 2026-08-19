@@ -48,7 +48,7 @@ import { Button } from "@/components/Button/Button"
         >
           Button
         </p>
-        <p className="text-lg text-gray-600">
+        <p className="text-lg text-gray-600 dark:text-slate-400">
           Displays a button or a component that looks like a button.
         </p>
       </header>
