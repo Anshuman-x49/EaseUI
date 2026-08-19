@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/libs/utils";
@@ -147,11 +147,11 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
         )}
 
         {title && (
-          <h3 className="font-semibold text-lg mb-2 text-[inherit]">{title}</h3>
+          <h3 className="font-semibold text-lg mb-2 text-inherit">{title}</h3>
         )}
 
         {description && (
-          <p className="text-gray-500 mb-4 text-[inherit]">{description}</p>
+          <p className="text-gray-500 mb-4">{description}</p>
         )}
 
         {children}
