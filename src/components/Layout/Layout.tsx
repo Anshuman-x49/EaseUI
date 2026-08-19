@@ -23,14 +23,15 @@ export const useLayout = () => {
 
 // --- CVA Variants ---
 const layoutVariants = cva(
-  "min-h-screen w-full flex flex-col bg-gray-50 text-gray-900 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-200",
+  "min-h-screen w-full flex flex-col font-sans antialiased selection:bg-indigo-500 selection:text-white transition-colors duration-200",
   {
     variants: {
       variant: {
-        default: "bg-gray-50 dark:bg-slate-950",
-        light: "bg-white text-gray-900",
-        dark: "bg-slate-900 text-white dark",
-        slate: "bg-slate-100 dark:bg-slate-900",
+        default: "bg-gray-50 text-gray-900 dark:bg-slate-950 dark:text-slate-100",
+        light: "bg-white text-gray-900 border-gray-200",
+        dark: "bg-slate-950 text-slate-100 border-slate-800",
+        indigo: "bg-indigo-950 text-indigo-100 border-indigo-900",
+        glass: "bg-slate-900/90 text-white backdrop-blur-md border-white/10",
       },
     },
     defaultVariants: {
@@ -87,8 +88,8 @@ export const Layout = React.forwardRef<HTMLDivElement, LayoutProps>(
               {sidebar && (
                 <aside
                   className={cn(
-                    "fixed inset-y-0 left-0 z-40 w-64 bg-white dark:bg-slate-900 border-r border-gray-200 dark:border-slate-800 transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static",
-                    sidebarOpen ? "translate-x-0" : "-translate-x-full"
+                    "fixed inset-y-0 left-0 z-40 w-64 bg-slate-900 text-white border-r border-slate-800 transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static",
+                    sidebarOpen ? "translate-x-0 shadow-2xl" : "-translate-x-full"
                   )}
                 >
                   {sidebar}
@@ -97,19 +98,19 @@ export const Layout = React.forwardRef<HTMLDivElement, LayoutProps>(
 
               {sidebarOpen && (
                 <div
-                  className="fixed inset-0 z-30 bg-black/40 lg:hidden backdrop-blur-xs"
+                  className="fixed inset-0 z-30 bg-black/50 lg:hidden backdrop-blur-xs"
                   onClick={() => setSidebarOpen(false)}
                 />
               )}
 
               <div className="flex-1 flex flex-col min-w-0">
                 {header && (
-                  <header className="sticky top-0 z-20 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-gray-200 dark:border-slate-800 px-4 py-3 flex items-center justify-between">
+                  <header className="sticky top-0 z-20 bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-slate-800 px-6 py-4 flex items-center justify-between">
                     <button
                       type="button"
                       aria-label="Toggle navigation menu"
                       onClick={toggleSidebar}
-                      className="lg:hidden p-2 rounded-md hover:bg-gray-100 dark:hover:bg-slate-800"
+                      className="lg:hidden p-2 rounded-md hover:bg-gray-100 dark:hover:bg-slate-800 text-gray-700 dark:text-slate-200"
                     >
                       <Menu className="w-5 h-5" />
                     </button>
@@ -120,7 +121,7 @@ export const Layout = React.forwardRef<HTMLDivElement, LayoutProps>(
                 <main className="flex-1 p-6 overflow-auto">{children}</main>
 
                 {footer && (
-                  <footer className="bg-white dark:bg-slate-900 border-t border-gray-200 dark:border-slate-800 p-4">
+                  <footer className="bg-white dark:bg-slate-900 border-t border-gray-200 dark:border-slate-800 p-4 text-sm text-gray-500">
                     {footer}
                   </footer>
                 )}
@@ -128,11 +129,11 @@ export const Layout = React.forwardRef<HTMLDivElement, LayoutProps>(
             </div>
           )}
 
-          {/* Preset 2: Main Web Layout (Header + Centered Main Content + Footer) */}
+          {/* Preset 2: Main Web Layout (Header + Centered Content + Footer) */}
           {layoutType === "main" && !children && (
             <div className="flex flex-col min-h-screen">
               {header && (
-                <header className="sticky top-0 z-30 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-gray-200 dark:border-slate-800 px-6 py-4">
+                <header className="sticky top-0 z-30 bg-slate-900 text-white border-b border-slate-800 px-6 py-4">
                   <div className="max-w-7xl mx-auto flex items-center justify-between">
                     {header}
                   </div>
@@ -144,7 +145,7 @@ export const Layout = React.forwardRef<HTMLDivElement, LayoutProps>(
               </main>
 
               {footer && (
-                <footer className="bg-white dark:bg-slate-900 border-t border-gray-200 dark:border-slate-800 p-6 mt-auto">
+                <footer className="bg-slate-900 text-slate-400 border-t border-slate-800 p-6 mt-auto">
                   <div className="max-w-7xl mx-auto">{footer}</div>
                 </footer>
               )}
@@ -171,7 +172,7 @@ export const LayoutHeader = React.forwardRef<HTMLElement, LayoutHeaderProps>(
       <header
         ref={ref}
         className={cn(
-          "w-full bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-gray-200 dark:border-slate-800 px-6 py-4 z-30 flex items-center justify-between",
+          "w-full bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-slate-800 px-6 py-4 z-30 flex items-center justify-between shadow-xs",
           sticky && "sticky top-0",
           className
         )}
@@ -201,19 +202,19 @@ export const LayoutSidebar = React.forwardRef<HTMLElement, LayoutSidebarProps>(
         <aside
           ref={ref}
           className={cn(
-            "fixed inset-y-0 left-0 z-40 bg-white dark:bg-slate-900 border-r border-gray-200 dark:border-slate-800 p-4 transition-transform duration-300 ease-in-out lg:static lg:translate-x-0",
+            "fixed inset-y-0 left-0 z-40 bg-slate-900 text-slate-100 border-r border-slate-800 p-5 transition-transform duration-300 ease-in-out lg:static lg:translate-x-0",
             widthClasses,
             sidebarOpen ? "translate-x-0 shadow-2xl" : "-translate-x-full"
           )}
           {...props}
         >
           <div className="flex items-center justify-between mb-4 lg:hidden">
-            <span className="text-xs font-semibold uppercase text-gray-500">Navigation</span>
+            <span className="text-xs font-bold uppercase tracking-wider text-slate-400">Navigation</span>
             <button
               type="button"
               aria-label="Close sidebar"
               onClick={() => setSidebarOpen(false)}
-              className="p-1 rounded hover:bg-gray-100 dark:hover:bg-slate-800"
+              className="p-1.5 rounded hover:bg-slate-800 text-slate-400 hover:text-white"
             >
               <X className="w-5 h-5" />
             </button>
@@ -223,7 +224,7 @@ export const LayoutSidebar = React.forwardRef<HTMLElement, LayoutSidebarProps>(
 
         {sidebarOpen && (
           <div
-            className="fixed inset-0 z-30 bg-black/40 lg:hidden backdrop-blur-xs"
+            className="fixed inset-0 z-30 bg-black/50 lg:hidden backdrop-blur-xs"
             onClick={() => setSidebarOpen(false)}
           />
         )}
@@ -274,7 +275,7 @@ export const LayoutFooter = React.forwardRef<HTMLElement, LayoutFooterProps>(
       <footer
         ref={ref}
         className={cn(
-          "w-full bg-white dark:bg-slate-900 border-t border-gray-200 dark:border-slate-800 p-6 mt-auto",
+          "w-full bg-slate-900 text-slate-400 border-t border-slate-800 p-6 mt-auto text-sm",
           className
         )}
         {...props}
@@ -303,7 +304,7 @@ export const LayoutSidebarToggle = React.forwardRef<
       aria-label="Toggle sidebar"
       onClick={toggleSidebar}
       className={cn(
-        "inline-flex items-center justify-center p-2 rounded-md hover:bg-gray-100 dark:hover:bg-slate-800 text-gray-700 dark:text-slate-200 transition-colors",
+        "inline-flex items-center justify-center p-2 rounded-md bg-slate-800 hover:bg-slate-700 text-white transition-colors",
         className
       )}
       {...props}
