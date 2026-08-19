@@ -5,7 +5,7 @@ import { Provider } from "react-redux";
 import { store } from "./store/Store.tsx";
 import { setTheme } from "./features/ThemeSlice.tsx";
 
-const savedTheme = localStorage.getItem("theme") || "light";
+const savedTheme = localStorage.getItem("theme") || "dark";
 store.dispatch(setTheme(savedTheme));
 
 createRoot(document.getElementById("root")!).render(
