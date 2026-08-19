@@ -4,4 +4,5 @@ export * from './Card/Card'
 export * from './Modal/Modal'
 export * from './Input/Input'
 export * from './Carousel'
+export * from './Tooltip'
 
